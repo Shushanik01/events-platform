@@ -1,0 +1,23 @@
+---
+description: Enforce strict TypeScript and no disabled ESLint rules
+alwaysApply: true
+---
+
+# Strict TypeScript And ESLint Discipline
+
+- Use strict TypeScript typing in all new/updated code.
+- Avoid `any`; prefer explicit types, unions, generics, or `unknown` with narrowing.
+- Avoid unsafe casts unless there is a clear runtime guarantee and comment.
+- Do not disable ESLint rules inline, file-wide, or in config for convenience.
+- Do not use `// @ts-ignore`; fix typing issues at the source.
+
+## Examples
+
+```ts
+// BAD
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const normalize = (value: any) => value;
+
+// GOOD
+const normalize = (value: string | number): string => String(value);
+```

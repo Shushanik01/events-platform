@@ -1,0 +1,22 @@
+---
+description: Run smell-check after any refactor or code cleanup so we don't leave behind bad patterns
+alwaysApply: false
+---
+# Refactor Smell Check
+Whenever you refactor, clean up, or reorganize any code in this project, run the `/smell-check` skill on the changed files before calling it done.
+
+I added this because I kept refactoring stuff and then forgetting to check if I introduced new issues. Now it's automatic.
+
+## What counts as a refactor
+- Moving or renaming things
+- Splitting or merging components
+- Rewriting a function or hook
+- Cleaning up imports or restructuring a file
+- Anything where the behavior stays the same but the code changes
+
+## What to do
+1. Make the refactor changes
+2. Run `/smell-check` on the files you touched
+3. If it finds something, fix it or at least mention it — don't just ignore it
+4. Then say you're done
+Small style fixes (like fixing a typo or changing a classname) don't need this, that would be annoying.

@@ -1,0 +1,23 @@
+---
+description: Disallow inline styles in frontend code
+alwaysApply: true
+---
+
+# No Inline Styles
+
+- Do not use inline style objects in JSX (`style={{ ... }}`).
+- Do not set styles via direct DOM style mutations in components.
+- Prefer:
+  - Component-level `styles` files
+  - CSS modules
+  - Shared theme/tokens from the design system
+
+## Examples
+
+```tsx
+// BAD
+<div style={{ marginTop: 16, color: '#111' }} />
+
+// GOOD
+<div className="profileCard" />
+```

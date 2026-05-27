@@ -1,0 +1,25 @@
+---
+description: Standard component directory structure
+alwaysApply: true
+---
+
+# Component Folder Structure
+
+- Each component must live in its own folder named after the component.
+- Every component folder must contain `index.tsx` as the component entry file.
+- Move styles into a dedicated styles file (for example `styles.ts`, `styles.module.css`, or `styles.css`).
+- Put constants in `consts.ts`.
+- Put helper functions in `utils.ts`.
+- Keep component-specific types in `types.ts` when needed.
+- Keep related tests next to the component (`index.test.tsx`).
+
+## Target shape
+
+```text
+ComponentName/
+  index.tsx
+  styles.ts
+  consts.ts
+  utils.ts
+  index.test.tsx
+```
