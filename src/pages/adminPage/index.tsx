@@ -1,10 +1,5 @@
-import { PagePlaceholder } from '@/components/PagePlaceholder'
+import { RegistrationsTable } from '@/components/RegistrationsTable'
 
 export function AdminPage() {
-  return (
-    <PagePlaceholder
-      title="Admin"
-      description="Review platform activity and manage event publishing workflows."
-    />
-  )
+  return <RegistrationsTable />
 }
