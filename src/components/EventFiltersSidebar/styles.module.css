@@ -3,8 +3,9 @@
 ───────────────────────────────────────── */
 .sidebar {
   background: #ffffff;
+  border: 1px solid #d9d9d9;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(23, 16, 20, 0.09);
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   padding: 24px;
@@ -32,11 +33,12 @@
 .sectionTitle {
   color: #171014;
   display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
   margin: 0 0 14px;
-  text-transform: uppercase;
 }
 
 /* ─────────────────────────────────────────
@@ -56,23 +58,14 @@
 }
 
 .dateInput:focus {
-  border-color: #770016;
-  box-shadow: 0 0 0 3px rgba(119, 0, 22, 0.1);
+  border-color: var(--color-blue-600);
+  box-shadow: 0 0 0 3px rgb(var(--color-blue-600-rgb) / 0.1);
   outline: none;
 }
 
 /* ─────────────────────────────────────────
    Price range slider
 ───────────────────────────────────────── */
-.priceDisplay {
-  color: #171014;
-  display: flex;
-  font-size: 13px;
-  font-weight: 600;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
 .sliderWrapper {
   height: 28px;
   margin-bottom: 6px;
@@ -84,8 +77,8 @@
   background: linear-gradient(
     to right,
     #e0d6da var(--range-min, 0%),
-    #770016 var(--range-min, 0%),
-    #770016 var(--range-max, 100%),
+    var(--color-blue-600) var(--range-min, 0%),
+    var(--color-blue-600) var(--range-max, 100%),
     #e0d6da var(--range-max, 100%)
   );
   border-radius: 3px;
@@ -115,10 +108,10 @@
 .rangeInput::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #770016;
-  border: 2.5px solid #ffffff;
+  background: var(--color-blue-600);
+  border: 2.5px solid #ebebeb;
   border-radius: 50%;
-  box-shadow: 0 1px 6px rgba(119, 0, 22, 0.35);
+  box-shadow: 0 1px 6px rgb(var(--color-blue-600-rgb) / 0.35);
   cursor: grab;
   height: 20px;
   pointer-events: auto;
@@ -129,17 +122,17 @@
 }
 
 .rangeInput::-webkit-slider-thumb:active {
-  box-shadow: 0 0 0 6px rgba(119, 0, 22, 0.15);
+  box-shadow: 0 0 0 6px rgb(var(--color-blue-600-rgb) / 0.15);
   cursor: grabbing;
   transform: scale(1.1);
 }
 
 /* Thumb — Firefox */
 .rangeInput::-moz-range-thumb {
-  background: #770016;
-  border: 2.5px solid #ffffff;
+  background: var(--color-blue-600);
+  border: 2.5px solid #ebebeb;
   border-radius: 50%;
-  box-shadow: 0 1px 6px rgba(119, 0, 22, 0.35);
+  box-shadow: 0 1px 6px rgb(var(--color-blue-600-rgb) / 0.35);
   cursor: grab;
   height: 20px;
   pointer-events: auto;
@@ -173,9 +166,10 @@
 }
 
 .priceLabels {
-  color: #a08a94;
+  color: var(--color-text-secondary);
   display: flex;
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 500;
   justify-content: space-between;
 }
 
@@ -189,8 +183,8 @@
 }
 
 .categoryPill {
-  background: transparent;
-  border: 1.5px solid #e0d6da;
+  background-color: rgba(227, 236, 250, 1);
+  border: 1.5px solid #d9ddef;
   border-radius: 999px;
   color: #5b4a51;
   cursor: pointer;
@@ -204,20 +198,21 @@
 }
 
 .categoryPill:hover {
-  border-color: #770016;
-  color: #770016;
+  border-color: var(--color-blue-600);
+  color: var(--color-blue-600);
 }
 
 .categoryPillActive {
-  background: #770016;
-  border-color: #770016;
-  color: #ffffff;
+  background: #eef3fc;
+  border-color: var(--color-blue-600);
+  color: var(--color-blue-600);
+  font-weight: 600;
 }
 
 .categoryPillActive:hover {
-  background: #5e0011;
-  border-color: #5e0011;
-  color: #ffffff;
+  background: #e3ecfa;
+  border-color: var(--color-blue-700);
+  color: var(--color-blue-700);
 }
 
 /* ─────────────────────────────────────────
@@ -242,8 +237,8 @@
 
 .locationInputWrapperOpen,
 .locationInputWrapper:focus-within {
-  border-color: #770016;
-  box-shadow: 0 0 0 3px rgba(119, 0, 22, 0.1);
+  border-color: var(--color-blue-600);
+  box-shadow: 0 0 0 3px rgb(var(--color-blue-600-rgb) / 0.1);
 }
 
 .locationInput {
@@ -297,22 +292,22 @@
 }
 
 .locationItem:hover {
-  background: #faf4f6;
+  background: #f5f8fd;
 }
 
 .locationItemActive {
-  background: #fdf0f2;
-  color: #770016;
+  background: #eef3fc;
+  color: var(--color-blue-600);
   font-weight: 600;
 }
 
 .locationItemActive:hover {
-  background: #fae8ec;
+  background: #e3ecfa;
 }
 
 /* Small filled dot shown beside the selected venue */
 .locationCheck {
-  background: #770016;
+  background: var(--color-blue-600);
   border-radius: 50%;
   flex-shrink: 0;
   height: 7px;
@@ -336,7 +331,7 @@
 }
 
 .applyButton {
-  background: #770016;
+  background: var(--color-blue-600);
   border: none;
   border-radius: 999px;
   color: #ffffff;
@@ -351,12 +346,12 @@
 }
 
 .applyButton:hover {
-  background: #5e0011;
-  box-shadow: 0 4px 14px rgba(119, 0, 22, 0.3);
+  background: var(--color-blue-700);
+  box-shadow: 0 4px 14px rgb(var(--color-blue-600-rgb) / 0.3);
 }
 
 .applyButton:active {
-  background: #4a000d;
+  background: var(--color-blue-800);
 }
 
 .resetButton {
@@ -374,8 +369,8 @@
 }
 
 .resetButton:hover {
-  border-color: #770016;
-  color: #770016;
+  border-color: var(--color-blue-600);
+  color: var(--color-blue-600);
 }
 
 /* ─────────────────────────────────────────

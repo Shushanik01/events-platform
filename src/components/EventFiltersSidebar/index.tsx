@@ -136,10 +136,6 @@ export function EventFiltersSidebar({
       {/* ── Price Range ── */}
       <section className={styles.section}>
         <p className={styles.sectionTitle}>Price Range (AMD)</p>
-        <div className={styles.priceDisplay}>
-          <span>{formatPrice(filters.priceMin)}</span>
-          <span>{formatPrice(filters.priceMax)}</span>
-        </div>
         <div className={styles.sliderWrapper} ref={trackRef}>
           <div className={styles.sliderTrack} aria-hidden="true" />
           <input
@@ -167,9 +163,9 @@ export function EventFiltersSidebar({
             onChange={(e) => handlePriceMaxChange(Number(e.target.value))}
           />
         </div>
-        <div className={styles.priceLabels} aria-hidden="true">
-          <span>0 AMD</span>
-          <span>100,000 AMD</span>
+        <div className={styles.priceLabels}>
+          <span>{formatPrice(filters.priceMin)}</span>
+          <span>{formatPrice(filters.priceMax)}</span>
         </div>
       </section>
 
