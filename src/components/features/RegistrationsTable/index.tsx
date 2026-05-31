@@ -36,6 +36,7 @@ export const RegistrationsTable = () => {
 
   const pageStart = (currentPage - 1) * PAGE_SIZE + 1
   const pageEnd = Math.min(currentPage * PAGE_SIZE, TOTAL_COUNT)
+  const pageData = REGISTRATIONS_DATA.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
 
   return (
     <section className={styles.tableSection} aria-label="Registrations table">
@@ -85,8 +86,8 @@ export const RegistrationsTable = () => {
           </thead>
 
           <tbody>
-            {REGISTRATIONS_DATA.map((registration, index) => {
-              const isLast = index === REGISTRATIONS_DATA.length - 1
+            {pageData.map((registration, index) => {
+              const isLast = index === pageData.length - 1
               const cellClassName = isLast
                 ? `${styles.tableBodyCell} ${styles.lastRowCell}`
                 : styles.tableBodyCell

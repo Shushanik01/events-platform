@@ -25,6 +25,12 @@ const AdminPage = lazy(() =>
   import('@/pages/adminPage').then((module) => ({ default: module.AdminPage })),
 )
 
+const AdminComingSoonPage = lazy(() =>
+  import('@/pages/adminComingSoonPage').then((module) => ({
+    default: module.AdminComingSoonPage,
+  })),
+)
+
 const PasswordRecoveryPage = lazy(() =>
   import('@/pages/passwordRecovery').then((module) => ({
     default: module.PasswordRecoveryPage,
@@ -71,6 +77,26 @@ export const adminPageRoute: RouteObject = {
   element: createElement(AdminPage),
 }
 
+export const adminEventsRoute: RouteObject = {
+  path: 'admin/events',
+  element: createElement(AdminComingSoonPage),
+}
+
+export const adminFinancesRoute: RouteObject = {
+  path: 'admin/finances',
+  element: createElement(AdminComingSoonPage),
+}
+
+export const adminUsersRoute: RouteObject = {
+  path: 'admin/users',
+  element: createElement(AdminComingSoonPage),
+}
+
+export const adminSettingsRoute: RouteObject = {
+  path: 'admin/settings',
+  element: createElement(AdminComingSoonPage),
+}
+
 export const passwordRecoveryPageRoute: RouteObject = {
   path: 'password-recovery',
   element: createElement(PasswordRecoveryPage),
@@ -100,5 +126,9 @@ export const appRoutes: RouteObject[] = [
   },
   adminRedirectRoute,
   adminPageRoute,
+  adminEventsRoute,
+  adminFinancesRoute,
+  adminUsersRoute,
+  adminSettingsRoute,
   notFoundPageRoute,
 ]
