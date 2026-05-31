@@ -88,10 +88,10 @@ export const appRoutes: RouteObject[] = [
       categoriesPageRoute,
       loginPageRoute,
       signUpPageRoute,
-      adminPageRoute,
       passwordRecoveryPageRoute,
       userProfilePageRoute,
     ],
   },
+  adminPageRoute,
   notFoundPageRoute,
 ]

@@ -1,5 +1,10 @@
-import { PagePlaceholder } from '@/components/_shared/PagePlaceholder'
+import { RegistrationsTable } from '@/components/RegistrationsTable'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
-export function AdminPage() {
-  return <PagePlaceholder namespace="admin" titleKey="title" descriptionKey="description" />
+export const AdminPage = () => {
+  return (
+    <AdminLayout title="Registrations" notificationCount={3}>
+      <RegistrationsTable />
+    </AdminLayout>
+  )
 }
