@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 16px;
   font-family:
     Inter,
     ui-sans-serif,
@@ -16,11 +16,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
   padding: 20px 32px;
   background: #ffffff;
   border: 1px solid rgba(217, 217, 217, 1);
-  border-radius: 14px;
+  border-radius: 12px;
   min-width: 0;
   height: 130px;
 }
@@ -89,7 +89,7 @@
 @media (max-width: 768px) {
   .card {
     padding: 16px 20px;
-    height: 110px;
+    height: 100px;
   }
 
   .label {

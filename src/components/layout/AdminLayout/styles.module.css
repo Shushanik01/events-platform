@@ -11,6 +11,10 @@
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  padding: 28px 32px;
+  gap: 16px;
+  padding: 0px 24px 28px;
+  background-color: rgb(240, 238, 238);
 }
