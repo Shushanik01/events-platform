@@ -173,6 +173,7 @@
 
   .resetButton {
     grid-column: 1;
+    grid-row: auto;
     width: 100%;
   }
 

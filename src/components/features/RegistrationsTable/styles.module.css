@@ -27,7 +27,11 @@
 
 .tableTitle {
   margin: 0;
-  font-family: 'Bricolage Grotesque Variable';
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: #111827;
@@ -382,5 +386,26 @@
   .tableHeadCell:last-child,
   .tableBodyCell:last-child {
     padding-right: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableHeader {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .tableFooter {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .footerRight {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }

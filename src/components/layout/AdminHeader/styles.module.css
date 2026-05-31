@@ -9,10 +9,14 @@
 }
 
 .title {
-  color: var(--color-text-primary);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  color: #111827;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 600;
   margin: 0;
 }
 
