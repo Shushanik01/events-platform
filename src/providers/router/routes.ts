@@ -1,4 +1,5 @@
 import { createElement, lazy, type ComponentType } from 'react'
+import { Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import { GuestRoute } from '@/components/_shared/GuestRoute'
 import { ProtectedRoute } from '@/components/_shared/ProtectedRoute'
@@ -22,6 +23,12 @@ const LazySignUpPage = lazy(
 
 const AdminPage = lazy(() =>
   import('@/pages/adminPage').then((module) => ({ default: module.AdminPage })),
+)
+
+const AdminComingSoonPage = lazy(() =>
+  import('@/pages/adminComingSoonPage').then((module) => ({
+    default: module.AdminComingSoonPage,
+  })),
 )
 
 const PasswordRecoveryPage = lazy(() =>
@@ -56,12 +63,23 @@ export const appRoutes: RouteObject[] = [
       },
       {
         element: createElement(ProtectedRoute),
-        children: [
-          { path: 'admin', element: createElement(AdminPage) },
-          { path: 'profile', element: createElement(UserProfilePage) },
-        ],
+        children: [{ path: 'profile', element: createElement(UserProfilePage) }],
       },
-      { path: '*', element: createElement(NotFoundPage) },
     ],
   },
+  {
+    element: createElement(ProtectedRoute),
+    children: [
+      {
+        path: 'admin',
+        element: createElement(Navigate, { to: '/admin/registrations', replace: true }),
+      },
+      { path: 'admin/registrations', element: createElement(AdminPage) },
+      { path: 'admin/events', element: createElement(AdminComingSoonPage) },
+      { path: 'admin/finances', element: createElement(AdminComingSoonPage) },
+      { path: 'admin/users', element: createElement(AdminComingSoonPage) },
+      { path: 'admin/settings', element: createElement(AdminComingSoonPage) },
+    ],
+  },
+  { path: '*', element: createElement(NotFoundPage) },
 ]

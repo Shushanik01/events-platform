@@ -8,9 +8,18 @@ importers:
 
   .:
     dependencies:
+      '-':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@ant-design/icons':
         specifier: ^5
         version: 5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@fontsource-variable/bricolage-grotesque':
+        specifier: ^5.2.10
+        version: 5.2.10
+      '@fontsource/libre-caslon-text':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@reduxjs/toolkit':
         specifier: ^2
         version: 2.12.0(react-redux@9.3.0(@types/react@18.3.29)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
@@ -20,6 +29,9 @@ importers:
       axios:
         specifier: ^1
         version: 1.16.1
+      dayjs:
+        specifier: ^1.11.21
+        version: 1.11.21
       firebase:
         specifier: ^11
         version: 11.10.0
@@ -125,6 +137,9 @@ importers:
         version: 6.4.2(@types/node@25.9.1)(yaml@2.9.0)
 
 packages:
+
+  '-@0.0.1':
+    resolution: {integrity: sha512-3HfneK3DGAm05fpyj20sT3apkNcvPpCuccOThOPdzz8sY7GgQGe0l93XH9bt+YzibcTIgUAIMoyVJI740RtgyQ==}
 
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
@@ -757,6 +772,12 @@ packages:
 
   '@firebase/webchannel-wrapper@1.0.3':
     resolution: {integrity: sha512-2xCRM9q9FlzGZCdgDMJwc0gyUkWFtkosy7Xxr6sFgQwn+wMNIWd7xIvYNauU1r64B5L5rsGKy/n9TKJ0aAFeqQ==}
+
+  '@fontsource-variable/bricolage-grotesque@5.2.10':
+    resolution: {integrity: sha512-5EDsCqgGpKVcJWE4sg9ydli+t5WM97mISYw5lla/Ev4z71FwXh1oN0YUU8xjkRW9+wBCGD9R+ntAvI8G4bUFJg==}
+
+  '@fontsource/libre-caslon-text@5.2.7':
+    resolution: {integrity: sha512-popxcrFaQyr1KtVwAxPF3s30ioZwHsASO1Np+w7KbKUw5N57aluimNZWDDNFDKlph536PS8QCpCG4k3Wj7QlyQ==}
 
   '@grpc/grpc-js@1.9.16':
     resolution: {integrity: sha512-wE4Ut/olIzfKqp631XrG+wbF0v1vWFN4YL9FyXC2LJiG33DsV7PLzURjrCvY/6je2ntdRkeLpPDluzSRGaVltQ==}
@@ -1658,6 +1679,9 @@ packages:
 
   dayjs@1.11.20:
     resolution: {integrity: sha512-YbwwqR/uYpeoP4pu043q+LTDLFBLApUP6VxRihdfNTqu4ubqMlGDLd6ErXhEgsyvY0K6nCs7nggYumAN+9uEuQ==}
+
+  dayjs@1.11.21:
+    resolution: {integrity: sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -3546,6 +3570,8 @@ packages:
 
 snapshots:
 
+  '-@0.0.1': {}
+
   '@adobe/css-tools@4.5.0': {}
 
   '@ant-design/colors@7.2.1':
@@ -4247,6 +4273,10 @@ snapshots:
       tslib: 2.8.1
 
   '@firebase/webchannel-wrapper@1.0.3': {}
+
+  '@fontsource-variable/bricolage-grotesque@5.2.10': {}
+
+  '@fontsource/libre-caslon-text@5.2.7': {}
 
   '@grpc/grpc-js@1.9.16':
     dependencies:
@@ -5297,6 +5327,8 @@ snapshots:
       whatwg-url: 11.0.0
 
   dayjs@1.11.20: {}
+
+  dayjs@1.11.21: {}
 
   debug@4.4.3:
     dependencies:
