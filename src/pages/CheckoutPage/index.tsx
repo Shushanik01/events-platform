@@ -25,6 +25,7 @@ import {
   getCheckoutStepStatus,
   isFreeCheckout,
   getOrderLineItemName,
+  isValidContactValues,
   normalizeCardNumber,
 } from './utils'
 import { sendOrderToTelegram } from '@/__mocks__/telegramBot'
@@ -56,7 +57,6 @@ export const CheckoutPage = () => {
       setTicketSelection(
         createInitialTicketSelection(checkoutEvent.ticketTiers, navigationState?.ticketQuantity),
       )
-      setContactValues(null)
       setPaymentValues(null)
       setOrderStatus('idle')
     }
@@ -64,11 +64,15 @@ export const CheckoutPage = () => {
 
   const contactInitialValues = useMemo<CheckoutContactValues>(
     () => ({
-      fullName: profile.fullName || t('defaults.contact.fullName'),
-      email: profile.email || t('defaults.contact.email'),
+      fullName: profile.fullName,
+      email: profile.email,
     }),
-    [profile.email, profile.fullName, t],
+    [profile.email, profile.fullName],
   )
+
+  useEffect(() => {
+    setContactValues(isValidContactValues(contactInitialValues) ? contactInitialValues : null)
+  }, [contactInitialValues])
 
   const totals = useMemo(
     () => buildOrderTotals(ticketSelection, ticketTiers),
@@ -172,6 +176,7 @@ export const CheckoutPage = () => {
         >
           <CheckoutContactForm
             initialValues={contactInitialValues}
+            disabled
             onValidChange={setContactValues}
           />
         </CheckoutStepSection>
@@ -183,7 +188,9 @@ export const CheckoutPage = () => {
           status={getCheckoutStepStatus(3, readiness, isFree)}
         >
           {isFree ? (
-            <Typography.Text type="secondary">{t('payment.freeNotice')}</Typography.Text>
+            <Typography.Text className={styles.freeNotice}>
+              {t('payment.freeNotice')}
+            </Typography.Text>
           ) : (
             <CheckoutPaymentForm onValidChange={setPaymentValues} />
           )}

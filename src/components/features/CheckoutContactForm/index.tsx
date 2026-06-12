@@ -7,7 +7,11 @@ import { CONTACT_FORM_FIELDS } from './consts'
 import type { CheckoutContactFormProps } from './types'
 import styles from './styles.module.css'
 
-export const CheckoutContactForm = ({ initialValues, onValidChange }: CheckoutContactFormProps) => {
+export const CheckoutContactForm = ({
+  initialValues,
+  disabled = false,
+  onValidChange,
+}: CheckoutContactFormProps) => {
   const { t } = useTranslation('checkout')
   const [form] = Form.useForm<CheckoutContactValues>()
 
@@ -17,8 +21,9 @@ export const CheckoutContactForm = ({ initialValues, onValidChange }: CheckoutCo
   }, [form, onValidChange])
 
   useEffect(() => {
+    form.setFieldsValue(initialValues)
     emitValidValues()
-  }, [emitValidValues])
+  }, [emitValidValues, form, initialValues])
 
   return (
     <Form
@@ -39,7 +44,7 @@ export const CheckoutContactForm = ({ initialValues, onValidChange }: CheckoutCo
               { min: 2, message: t('contact.validation.fullNameMin') },
             ]}
           >
-            <Input onBlur={emitValidValues} />
+            <Input disabled={disabled} onBlur={emitValidValues} />
           </Form.Item>
         </Col>
 
@@ -52,7 +57,7 @@ export const CheckoutContactForm = ({ initialValues, onValidChange }: CheckoutCo
               { type: 'email', message: t('contact.validation.emailInvalid') },
             ]}
           >
-            <Input type="email" onBlur={emitValidValues} />
+            <Input type="email" disabled={disabled} onBlur={emitValidValues} />
           </Form.Item>
         </Col>
       </Row>

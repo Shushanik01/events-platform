@@ -12,8 +12,12 @@ export function AppLayout() {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
 
+  const layoutClassName = isHome
+    ? `${styles.layout} ${styles.homeLayout}`
+    : `${styles.layout} ${styles.appLayout}`
+
   return (
-    <div className={styles.layout}>
+    <div className={layoutClassName}>
       <Header />
       <main className={styles.main}>
         <Suspense fallback={routeLoadingFallback}>

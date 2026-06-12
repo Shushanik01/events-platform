@@ -7,21 +7,29 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import '@/i18n'
 import i18n from '@/i18n'
 import checkoutEn from '@/locales/checkout/en.json'
+import type { UserProfile } from '@/pages/userProfile/types'
 import { getDefaultProfile, profileReducer } from '@/store/profile'
 import { CheckoutPage } from './index'
 
-const createTestStore = () =>
+const validProfile: UserProfile = {
+  ...getDefaultProfile(),
+  id: 'user-1',
+  fullName: 'Sona Mkrtchyan',
+  email: 'sona@example.com',
+}
+
+const createTestStore = (profile: UserProfile = getDefaultProfile()) =>
   configureStore({
     reducer: {
       profile: profileReducer,
     },
     preloadedState: {
-      profile: getDefaultProfile(),
+      profile,
     },
   })
 
-const renderCheckoutPage = (eventId: string) => {
-  const store = createTestStore()
+const renderCheckoutPage = (eventId: string, profile: UserProfile = getDefaultProfile()) => {
+  const store = createTestStore(profile)
 
   return render(
     <Provider store={store}>
@@ -37,6 +45,8 @@ const renderCheckoutPage = (eventId: string) => {
     </Provider>,
   )
 }
+
+const getContactStepSection = () => screen.getByLabelText(checkoutEn.steps.contact.aria)
 
 describe('CheckoutPage', () => {
   it('shows event-specific summary and ticket tiers for a profile booking event id', () => {
@@ -85,5 +95,24 @@ describe('CheckoutPage', () => {
       screen.getByRole('button', { name: checkoutEn.summary.reserveTicket }),
     ).toBeInTheDocument()
     expect(screen.queryByLabelText(checkoutEn.payment.fields.cardNumber)).not.toBeInTheDocument()
+  })
+
+  it('shows checked inactive contact step when profile has valid name and email', () => {
+    renderCheckoutPage('event-tech-meetup-tumo', validProfile)
+
+    expect(screen.getByDisplayValue(validProfile.fullName)).toBeDisabled()
+    expect(screen.getByDisplayValue(validProfile.email)).toBeDisabled()
+    expect(getContactStepSection().querySelector('.anticon-check')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: checkoutEn.summary.reserveTicket })).toBeEnabled()
+  })
+
+  it('keeps contact step incomplete when profile email is missing', () => {
+    renderCheckoutPage('event-tech-meetup-tumo', {
+      ...validProfile,
+      email: '',
+    })
+
+    expect(getContactStepSection().querySelector('.anticon-check')).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: checkoutEn.summary.reserveTicket })).toBeDisabled()
   })
 })
